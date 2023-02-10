@@ -12,7 +12,7 @@ class User extends Model
         $sth->execute([
             'login' => $data['login'],
             'full_name' => $data['full_name'],
-            'remember_token' => random_bytes(25) . time(),
+            'remember_token' => password_hash($data['password'] . time(), PASSWORD_DEFAULT),
             'email' => $data['email'],
             'password' => password_hash($data['password'], PASSWORD_DEFAULT),
         ]);

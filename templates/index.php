@@ -1,7 +1,7 @@
 <div class="card mt-3 border-0 shadow">
     <div class="card-body">
         <div class="">
-            <h1>Тест</h1>
+            <h1>Тестовое задание</h1>
             <div class="">
                 Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis
                 porttitor

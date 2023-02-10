@@ -4,5 +4,5 @@ return [
     'db_name' => 'login',
     'db_user' => 'root',
     'db_password' => '',
-    'db_charset' => 'utf8',
+    'db_charset' => 'utf8mb4',
 ];
