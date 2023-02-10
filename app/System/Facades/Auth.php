@@ -1,5 +1,6 @@
 <?php
 namespace App\System\Facades;
+
 class Auth
 {
     private static $object = null;

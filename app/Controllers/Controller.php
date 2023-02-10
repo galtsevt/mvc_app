@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\System\Render;
 
-class Controller
+abstract class Controller
 {
     protected Render $render;
 

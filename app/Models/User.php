@@ -53,4 +53,27 @@ class User extends Model
         return false;
     }
 
+    public function changePassword($login, $password, $new_password): bool
+    {
+        if ($this->login($login, $password)) {
+            $sth = $this->db->prepare('UPDATE ' . $this->table_name . ' SET `password` = :password WHERE `id` = :id');
+            $sth->execute([
+                'password' => password_hash($new_password, PASSWORD_DEFAULT),
+                'id' => auth()->user()['id'],
+            ]);
+            return true;
+        }
+        return false;
+    }
+
+    public function changeName($full_name): bool
+    {
+            $sth = $this->db->prepare('UPDATE ' . $this->table_name . ' SET `full_name` = :full_name WHERE `id` = :id');
+            $sth->execute([
+                'full_name' => $full_name,
+                'id' => auth()->user()['id'],
+            ]);
+            return true;
+    }
+
 }

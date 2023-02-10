@@ -16,9 +16,37 @@
             </div>
         </div>
         <div class="col-12 col-lg-8">
+            <?php if($error = session()->getFlash('error')): ?>
+                <div class="alert alert-danger">
+                    <?= $error ?>
+                </div>
+            <?php endif; ?>
+            <?php if($message = session()->getFlash('message')): ?>
+                <div class="alert alert-success">
+                    <?= $message ?>
+                </div>
+            <?php endif; ?>
             <div class="card border-0 shadow mb-2">
                 <div class="card-body">
-                    <form action="/password/change" method="POST">
+                    <form action="/user/change-name" method="POST">
+                        <div class="mb-3 fw-bold">
+                            <label for="" class="form-label">ФИО:</label>
+                            <input type="text" name="full_name" class="form-control" value="<?= auth()->user()['full_name'] ?>">
+                            <?php if(session()->hasError('full_name')): ?>
+                                <div class="text-danger">
+                                    <?= session()->getError('full_name') ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="mb-1">
+                            <button class="btn btn-dark" type="submit">Изменить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card border-0 shadow mb-2">
+                <div class="card-body">
+                    <form action="/user/change-password" method="POST">
                         <div class="mb-3 fw-bold">
                             <label for="" class="form-label">Текущий пароль:</label>
                             <input type="password" name="old_password" class="form-control" value="">
