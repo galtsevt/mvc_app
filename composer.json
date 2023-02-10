@@ -1,0 +1,27 @@
+{
+    "name": "galtsevt/mvc",
+    "description": "test",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Router/routes.php",
+            "app/System/functions/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Galtsev Timofey"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "symfony/var-dumper": "6.0.x-dev"
+    },
+    "require": {
+        "rakit/validation": "dev-master",
+        "ext-pdo": "*"
+    }
+}
