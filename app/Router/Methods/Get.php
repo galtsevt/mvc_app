@@ -9,7 +9,7 @@ class Get extends AbstractMethod
     /**
      * @throws \Exception
      */
-    public function check(): array|bool
+    public function check(): static|bool
     {
         if($route = $this->valid()) {
             if($_SERVER['REQUEST_METHOD'] === 'GET') {

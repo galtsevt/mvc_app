@@ -12,9 +12,14 @@ class App
      */
     public function run()
     {
-        if ($route = Route::findRoute()) {
-        $controller = new $route['callback'][0]();
-            return call_user_func_array([$controller, $route['callback'][1]], $route['parameters']);
+        try {
+            if ($route = Route::findRoute()) {
+                return $route->run();
+            }
+        } catch (Exception $e) {
+            // возможно потом запишем в логи
+            echo $e;
+            exit;
         }
         $this->response(404);
         return '404 not found';

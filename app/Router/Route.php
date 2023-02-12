@@ -12,7 +12,7 @@ class Route
 
     public static function post(string $url, array $callback): AbstractMethod
     {
-        self::$routes[] = $post = (new Post())->create($url, $callback);
+        $post = self::$routes[] = (new Post())->create($url, $callback);
         return $post;
     }
 
@@ -22,7 +22,7 @@ class Route
         return $post;
     }
 
-    public static function findRoute(): bool | array
+    public static function findRoute(): bool | AbstractMethod
     {
         foreach (self::$routes as $route) {
             if ($route = $route->check()) {
@@ -30,5 +30,10 @@ class Route
             }
         }
         return false;
+    }
+
+    public static function getRoutes(): array
+    {
+        return self::$routes;
     }
 }
