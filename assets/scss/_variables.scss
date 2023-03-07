@@ -1,0 +1,23 @@
+// Body
+$body-bg: #f8fafc;
+$border-radius: 0.5rem;
+$primary: #242b44;
+$customGreen: #82ab05;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+//cards
+$card-border-radius: $border-radius;
+$card-spacer-y: 0.8rem;
+$card-spacer-x: 0.8rem;
+$card-cap-padding-y: $card-spacer-y * .8;
+$card-cap-padding-x: $card-spacer-x;
+//forms
+$input-color: #393c48;
+//modal
+$modal-content-border-radius: $border-radius;
+//badge
+$badge-border-radius: 0.4rem;

@@ -4,7 +4,7 @@ namespace App\System;
 
 class Session
 {
-    private static $object = null;
+    private static $object;
 
     private function __construct() {
         session_start();

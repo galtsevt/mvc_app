@@ -1,3 +1,5 @@
 vendor
+node_modules
+public/build/
 .idea
 config/main.php

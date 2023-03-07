@@ -4,7 +4,7 @@
             <div class="card border-0 shadow mb-2">
                 <div class="card-body">
                     <div class="m-2 d-flex justify-content-center">
-                        <img src="/style/images/user.svg" width="150px">
+                        <img src="/images/user.svg" width="150px">
                     </div>
                     <div class="m-2">
                         <span class="fw-bold">ФИО:</span> <?= auth()->user()['full_name'] ?>
