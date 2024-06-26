@@ -8,7 +8,7 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
-<body class="h-100">
+<body class="h-100" hx-boost="true">
 <main class="h-100">
     <div class="d-flex h-100">
         <?= $mainContent ?>

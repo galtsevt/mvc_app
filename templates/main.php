@@ -6,7 +6,7 @@
     <title>Главная страница</title>
     <?= vite('assets/js/app.js') ?>
 </head>
-<body class="h-100">
+<body class="h-100" hx-boost="true">
 <div class="h-100 d-flex flex-column">
     <header class="p-1 text-bg-dark shadow-sm">
         <div class="container">

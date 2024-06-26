@@ -8,6 +8,8 @@ abstract class AbstractMethod
     protected string $url;
     protected array $callback;
 
+    protected array $middleware;
+
     protected array $parameters;
 
     public function create(string $url, array $callback): static
@@ -52,5 +54,6 @@ abstract class AbstractMethod
         $controller = new $this->callback[0]();
         return call_user_func_array([$controller, $this->callback[1]], $params);
     }
+
 
 }

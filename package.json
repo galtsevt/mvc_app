@@ -9,8 +9,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@hotwired/turbo": "^7.3.0",
     "bootstrap": "^5.3.0-alpha1",
+    "htmx.org": "^1.9.12",
     "sass": "^1.58.3",
     "vite": "^4.1.4",
     "vite-plugin-dev-manifest": "^1.1.1"
