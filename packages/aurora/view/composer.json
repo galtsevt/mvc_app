@@ -1,0 +1,17 @@
+{
+    "name": "aurora/view",
+    "description": "render view",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "Aurora\\View\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Galtsev Timofey"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

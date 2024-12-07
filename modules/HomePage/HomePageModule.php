@@ -1,11 +1,12 @@
 <?php
 
-namespace Aurora\Modules\Auth;
+namespace Aurora\Modules\HomePage;
 
 use Aurora\Framework\Core\Module;
 
-class AuthModule extends Module
+class HomePageModule extends Module
 {
+    protected string $name = 'home';
 
     function register(): void
     {

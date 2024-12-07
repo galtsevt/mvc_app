@@ -1,0 +1,21 @@
+{
+    "name": "aurora/router",
+    "description": "router for aurora framework",
+    "autoload": {
+        "psr-4": {
+            "Aurora\\Router\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Galtsev Timofey"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/http-foundation": "^7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    }
+}

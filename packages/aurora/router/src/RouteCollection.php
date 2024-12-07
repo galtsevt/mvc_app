@@ -1,13 +1,25 @@
 <?php
+declare(strict_types=1);
 
-namespace Aurora\Framework\Router;
+namespace Aurora\Router;
 
+use Aurora\Router\Exceptions\RouteNotFoundException;
+
+
+/**
+ * @property array{prefix: string} $params
+ */
 class RouteCollection
 {
+    use HasMiddleware;
+
     protected array $collection;
+    protected array $routeNames;
 
     public function __construct(
-        protected ?string $prefix = null
+        protected array            $params = [],
+        protected ?string          $parentPrefix = null,
+        protected ?RouteCollection $mainCollection = null
     )
     {
 
@@ -15,7 +27,7 @@ class RouteCollection
 
     public function addRoute(array $methods, string $path, string $controller, string $action): Route
     {
-        $route = new Route($methods, $path, $controller, $action);
+        $route = new Route($methods, $path, $controller, $action, $this->mainCollection ?? $this, $this->getPrefix());
         $this->collection[] = $route;
         return $route;
     }
@@ -56,9 +68,13 @@ class RouteCollection
         return $this->addRoute(['GET', 'POST', 'DELETE', 'PUT', 'PATCH'], $path, $controller, $action);
     }
 
-    public function group(callable $callback): RouteCollection
+    public function group(array $params, callable $callback): RouteCollection
     {
-        $this->collection[] = $routerGroup = new RouteCollection();
+        $this->collection[] = $routerGroup = new RouteCollection(
+            $params,
+            parentPrefix: $this->getPrefix(),
+            mainCollection: $this->mainCollection ?? $this,
+        );
         $callback($routerGroup);
         return $routerGroup;
     }
@@ -69,9 +85,30 @@ class RouteCollection
         return $this;
     }
 
-    public function prefix(string $prefix): static
+    public function getPrefix(): ?string
     {
-        $this->prefix = $prefix;
+        return $this->parentPrefix . ($this->params['prefix'] ?? '');
+    }
+
+    public function getCollection(): array
+    {
+        return $this->collection;
+    }
+
+    public function setRouteNames(string $name, Route $route): static
+    {
+        $this->routeNames[$name] = $route;
         return $this;
+    }
+
+    /**
+     * @throws RouteNotFoundException
+     */
+    public function getUrlFromRouteName(string $name, mixed $params): string
+    {
+        if (isset($this->routeNames[$name])) {
+            return $this->routeNames[$name]->getUrl($params);
+        }
+        return throw new RouteNotFoundException('There is no route named "' . $name . '"');
     }
 }

@@ -1,11 +1,10 @@
+#!/usr/bin/env php
 <?php
-require_once '../vendor/autoload.php';
-
-ini_set('session.gc_maxlifetime', 604800);
-ini_set('session.cookie_lifetime', 604800);
+require_once __DIR__ . '/vendor/autoload.php';
 
 $application = new \Aurora\Framework\Core\Application([
     \Aurora\Modules\HomePage\HomePageModule::class,
     \Aurora\Modules\Auth\AuthModule::class,
 ]);
-$application->run();
+
+$application->runConsole();
